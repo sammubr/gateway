@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: mercado
+          uri: http://localhost:8082
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/mercado/**
